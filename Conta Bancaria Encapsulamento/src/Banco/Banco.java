@@ -24,6 +24,8 @@ public class Banco {
         String nome, cpf, numero;
         int idade, input;
         boolean finalizar = false;
+        
+        
    
         System.out.print("Digite seu nome: ");
         nome = scan.next();
@@ -44,39 +46,51 @@ public class Banco {
         ContaBancaria conta = new ContaBancaria(nome,numero,pessoa.getCpf());
         System.out.println("Conta criada com sucesso");
         
-        while(!finalizar){            
+        while(!finalizar){      
+            System.out.println("************************************************");
             System.out.println("Que operaçao deseja realizar");
-            System.out.println("1 - depositar");
-            System.out.println("2 - saque");
-            System.out.println("3 - consultaHistorico");
-            System.out.println("4 - verSaldo");
-            System.out.println("5 - modificaTaxaSaque");
+            System.out.println("1 - Deposito");
+            System.out.println("2 - Saque");
+            System.out.println("3 - Consultar Historico");
+            System.out.println("4 - ver Saldo");
+            System.out.println("5 - Ver dados básicos do cliente");
             System.out.println("0 - finalizar programa");
             input = scan.nextInt();
             
             switch(input){
                 case 0:
+                    System.out.println("************************************************");
                     System.out.println("Obrigado por utilizar nossos serviços");
                     finalizar = true;
                     break;
                 case 1:
+                    System.out.println("************************************************");
                     System.out.println("Quanto deseja depositar?");
                     double deposito;
                     deposito = scan.nextDouble();
                     conta.deposita(deposito);
                     break;
                 case 2:
+                    System.out.println("************************************************");
                     System.out.println("Quanto deseja sacar?");
                     double saque;
                     saque = scan.nextDouble();
                     conta.saque(saque);
                     break;
                 case 3:
+                    System.out.println("************************************************");
                     conta.consultaHistorico();
+                    System.out.println("************************************************");
+                    break;
                 case 4:
+                    System.out.println("************************************************");
                     conta.verSaldo();
+                    System.out.println("************************************************");
+                    break;
                 case 5:
-                    conta.modificaTaxaSaque();
+                    System.out.println("Nome: " + pessoa.getNome());
+                    System.out.println("Idade: " + pessoa.getIdade());
+                    System.out.println("Telefone: " + conta.getTelefone());
             }
         }            
     }   
